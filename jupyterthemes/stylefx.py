@@ -119,12 +119,12 @@ def set_font_properties(style_less,
                         tcfont=None,
                         monofont=None,
                         monosize=11,
-                        tcfontsize=13,
+                        tcfontsize=14,
                         nbfontsize=13,
                         prfontsize=95,
                         dffontsize=93,
                         outfontsize=85,
-                        dfonts=False):
+                        dfonts=True):
     """Parent function for setting notebook, text/md, and
     codecell font-properties
     """
@@ -132,13 +132,13 @@ def set_font_properties(style_less,
     fontsizes = [monosize, nbfontsize, tcfontsize, prfontsize, dffontsize, outfontsize]
     monosize, nbfontsize, tcfontsize, prfontsize, dffontsize, outfontsize = convert_fontsizes(fontsizes)
     if dfonts==True:
-        monofont, tcfont, nbfont = ['monospace', 'sans-serif', 'sans-serif']
+        monofont, tcfont, nbfont = ['sourcemed', 'sans-serif', 'ptsans']
     else:
         if monofont is not None:
             monofont, monofpath = stored_font_dicts(monofont)
             style_less = import_fonts(style_less, monofont, monofpath)
         else:
-            monofont='monospace'
+            monofont='sourcemed'
         if tcfont is not None:
             tcfont, tcfontpath = stored_font_dicts(tcfont)
             style_less = import_fonts(style_less, tcfont, tcfontpath)
@@ -148,7 +148,7 @@ def set_font_properties(style_less,
             nbfont, nbfontpath = stored_font_dicts(nbfont)
             style_less = import_fonts(style_less, nbfont, nbfontpath)
         else:
-            nbfont='sans-serif'
+            nbfont='ptsans'
 
     style_less += '/* Set Font-Type and Font-Size Variables  */\n'
     # font names and fontfamily info for codecells, notebook & textcells
@@ -209,14 +209,14 @@ def import_fonts(style_less, fontname, font_subdir):
 
 
 def style_layout(style_less,
-                 theme='grade3',
+                 theme='fzhu2e',
                  cursorwidth=2,
                  cursorcolor='default',
                  cellwidth='980',
                  lineheight=170,
                  margins='auto',
                  vimext=False,
-                 toolbar=False,
+                 toolbar=True,
                  nbname=False,
                  altprompt=False,
                  hideprompt=False):
@@ -392,7 +392,7 @@ def set_nb_theme(name):
     return HTML(''.join(['<style> ', customcss, ' </style>']))
 
 
-def get_colors(theme='grade3', c='default', get_dict=False):
+def get_colors(theme='fzhu2e', c='default', get_dict=False):
     if theme == 'grade3':
         cdict = {'default': '#ff711a',
                  'b': '#1e70c7',
@@ -400,6 +400,13 @@ def get_colors(theme='grade3', c='default', get_dict=False):
                  'r': '#e22978',
                  'p': '#AA22FF',
                  'g': '#2ecc71'}
+    elif theme == 'fzhu2e':
+        cdict = {'default': '#6A737D',
+                 'b': '#0095ff',
+                 'o': '#ff914d',
+                 'r': '#DB797C',
+                 'p': '#c776df',
+                 'g': '#94c273'}
     else:
         cdict = {'default': '#0095ff',
                  'b': '#0095ff',
@@ -472,7 +479,8 @@ def stored_font_dicts(fontcode, get_all=False):
               'georgiaserif': ['Georgia', 'georgiaserif'],
               'neutonserif': ['Neuton', 'neutonserif'],
               'cardoserif': ['Cardo Serif', 'cardoserif'],
-              'goudyserif': ['Goudy Serif', 'goudyserif']}}
+              'goudyserif': ['Goudy Serif', 'goudyserif'],
+              'linuxlibertineserif': ['Linux Libertine Serif', 'linuxlibertineserif']}}
     if get_all:
         return fonts
     if fontcode in list(fonts['mono']):

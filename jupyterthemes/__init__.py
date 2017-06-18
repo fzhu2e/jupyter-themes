@@ -113,7 +113,7 @@ def main():
         '-f',
         "--monofont",
         action='store',
-        default=None,
+        default='sourcemed',
         help='monospace code font')
     parser.add_argument(
         '-fs',
@@ -125,7 +125,7 @@ def main():
         '-nf',
         "--nbfont",
         action='store',
-        default=None,
+        default='ptsans',
         help='notebook font')
     parser.add_argument(
         '-nfs',
@@ -137,7 +137,7 @@ def main():
         '-tf',
         "--tcfont",
         action='store',
-        default=None,
+        default='ptsans',
         help='txtcell font')
     parser.add_argument(
         '-tfs',
@@ -155,7 +155,7 @@ def main():
         '-ofs',
         "--outfontsize",
         action='store',
-        default='85',
+        default='95',
         help='output area fontsize')
     parser.add_argument(
         '-m',
@@ -203,7 +203,7 @@ def main():
         '-T',
         "--toolbar",
         action='store_true',
-        default=False,
+        default=True,
         help="make toolbar visible")
     parser.add_argument(
         '-N',
