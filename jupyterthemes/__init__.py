@@ -125,7 +125,7 @@ def main():
         '-nf',
         "--nbfont",
         action='store',
-        default='ptsans',
+        default='sfuisans',
         help='notebook font')
     parser.add_argument(
         '-nfs',
@@ -137,7 +137,7 @@ def main():
         '-tf',
         "--tcfont",
         action='store',
-        default='ptsans',
+        default='sfuisans',
         help='txtcell font')
     parser.add_argument(
         '-tfs',
@@ -155,7 +155,7 @@ def main():
         '-ofs',
         "--outfontsize",
         action='store',
-        default='95',
+        default='100',
         help='output area fontsize')
     parser.add_argument(
         '-m',

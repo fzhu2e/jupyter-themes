@@ -148,7 +148,7 @@ def set_font_properties(style_less,
             nbfont, nbfontpath = stored_font_dicts(nbfont)
             style_less = import_fonts(style_less, nbfont, nbfontpath)
         else:
-            nbfont='ptsans'
+            nbfont='modersans'
 
     style_less += '/* Set Font-Type and Font-Size Variables  */\n'
     # font names and fontfamily info for codecells, notebook & textcells
@@ -467,6 +467,7 @@ def stored_font_dicts(fontcode, get_all=False):
               'opensans': ['Open Sans', 'opensans'],
               'ptsans': ['PT Sans', 'ptsans'],
               'sourcesans': ['Source Sans Pro', 'sourcesans'],
+              'sfuisans': ['San Francisco UI', 'sfuisans'],
               'robotosans': ['Roboto', 'robotosans'],
               'latosans': ['Lato', 'latosans'],
               'exosans': ['Exo_2', 'exosans']},
@@ -479,8 +480,7 @@ def stored_font_dicts(fontcode, get_all=False):
               'georgiaserif': ['Georgia', 'georgiaserif'],
               'neutonserif': ['Neuton', 'neutonserif'],
               'cardoserif': ['Cardo Serif', 'cardoserif'],
-              'goudyserif': ['Goudy Serif', 'goudyserif'],
-              'linuxlibertineserif': ['Linux Libertine Serif', 'linuxlibertineserif']}}
+              'goudyserif': ['Goudy Serif', 'goudyserif']}}
     if get_all:
         return fonts
     if fontcode in list(fonts['mono']):
